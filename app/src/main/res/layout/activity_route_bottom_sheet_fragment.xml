@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
@@ -10,14 +11,14 @@
         android:id="@+id/location_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mi ubicación actual: Av. Núñez / Jr. Lima"
+        android:text="@string/mi_ubicaci_n_actual_av_n_ez_jr_lima"
         android:textSize="16sp"
         android:layout_marginBottom="8dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Líneas/Rutas"
+        android:text="@string/l_neas_rutas"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
@@ -37,28 +38,41 @@
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1" />
+                android:text="@string/_1"
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -70,46 +84,61 @@
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5" />
+                android:text="5"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
 
             <Button
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="6"
-                android:layout_marginStart="8dp" />
-
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
             <Button
                 android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="7"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
 
             <Button
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-
-            <Button
+        <Button
                 android:id="@+id/button9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9" />
-
+                android:text="9"
+                android:drawableLeft="@drawable/bus"
+            android:shape="rectangle"
+                android:drawablePadding="8dp" />
             <Button
                 android:id="@+id/button10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:drawableLeft="@drawable/bus"
+                android:shape="rectangle"
+                android:drawablePadding="8dp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -117,7 +146,7 @@
         android:id="@+id/ajustes_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ajustes"
+        android:text="@string/ajustes"
         android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/holo_red_dark"
         android:textColor="@android:color/white"/>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TuRutaAbancay</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="mi_ubicaci_n_actual_av_n_ez_jr_lima">Mi ubicación actual: Av. Núñez / Jr. Lima</string>
+    <string name="l_neas_rutas">Líneas/Rutas</string>
+    <string name="_1">1</string>
 </resources>
