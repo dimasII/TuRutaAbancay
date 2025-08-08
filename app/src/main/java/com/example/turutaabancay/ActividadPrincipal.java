@@ -17,7 +17,7 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         Spinner spinner2 = findViewById(R.id.spinner2);
 
-        String[] options = {"Seleccione una opción", "Rutas", "Otra opción"};
+        String[] options = {"Rutas", "Otra opción"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter);
