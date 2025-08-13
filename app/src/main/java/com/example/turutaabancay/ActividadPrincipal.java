@@ -6,18 +6,36 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
+public class ActividadPrincipal extends AppCompatActivity implements OnMapReadyCallback {
 
-public class ActividadPrincipal extends AppCompatActivity {
+    private MapView mapView;
+    private GoogleMap gMap;
+    private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_principal);
 
-        Spinner spinner2 = findViewById(R.id.spinner2);
+        // Inicializar MapView
+        mapView = findViewById(R.id.mapView);
+        Bundle mapViewBundle = null;
+        if (savedInstanceState != null) {
+            mapViewBundle = savedInstanceState.getBundle(MAP_VIEW_BUNDLE_KEY);
+        }
+        mapView.onCreate(mapViewBundle);
+        mapView.getMapAsync(this);
 
-        String[] options = {"seleccione otras rutas","Rutas", "Otra opción"};
+        // Configurar Spinner
+        Spinner spinner2 = findViewById(R.id.spinner2);
+        String[] options = {"seleccione otras rutas", "Rutas", "Otra opción"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter);
@@ -36,8 +54,66 @@ public class ActividadPrincipal extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        gMap = googleMap;
+
+        // Ejemplo: Centrar en Abancay
+        LatLng abancay = new LatLng(-13.635, -72.881);
+        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(abancay, 14));
+        gMap.addMarker(new MarkerOptions().position(abancay).title("Abancay"));
+    }
+
     private void showRouteBottomSheet() {
         RouteBottomSheetFragment bottomSheet = new RouteBottomSheetFragment();
         bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
+    }
+
+    // Ciclo de vida del MapView
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        mapView.onPause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        mapView.onStop();
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mapView.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Bundle mapViewBundle = outState.getBundle(MAP_VIEW_BUNDLE_KEY);
+        if (mapViewBundle == null) {
+            mapViewBundle = new Bundle();
+            outState.putBundle(MAP_VIEW_BUNDLE_KEY, mapViewBundle);
+        }
+        mapView.onSaveInstanceState(mapViewBundle);
     }
 }
