@@ -1,10 +1,14 @@
 package com.example.turutaabancay;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
+import androidx.core.content.ContextCompat;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -21,11 +25,26 @@ import okhttp3.Request;
 import okhttp3.Response;
 public class DirectionsHelper {
     private static final String DIRECTIONS_URL = "https://maps.googleapis.com/maps/api/directions/json";
+    private static Polyline lastPolyline = null;
 
-    public static void drawRoute(GoogleMap map, LatLng origin, LatLng destination, String apiKey) {
+    // Dibuja ruta usando Google Directions con paradas intermedias (waypoints)
+    public static void drawRouteWithWaypoints(GoogleMap map, LatLng origin, LatLng destination,
+                                              List<LatLng> waypoints, String apiKey, int color) {
+        if (map == null || origin == null || destination == null || apiKey == null) return;
+
         String url = DIRECTIONS_URL + "?origin=" + origin.latitude + "," + origin.longitude +
                 "&destination=" + destination.latitude + "," + destination.longitude +
                 "&mode=driving&key=" + apiKey;
+
+        // Agregar waypoints si hay
+        if (waypoints != null && !waypoints.isEmpty()) {
+            url += "&waypoints=";
+            for (int i = 0; i < waypoints.size(); i++) {
+                LatLng p = waypoints.get(i);
+                url += p.latitude + "," + p.longitude;
+                if (i < waypoints.size() - 1) url += "|";
+            }
+        }
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
@@ -38,8 +57,12 @@ public class DirectionsHelper {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) return;
+
                 String jsonData = response.body().string();
                 JsonObject jsonObject = JsonParser.parseString(jsonData).getAsJsonObject();
+
+                if (!jsonObject.get("status").getAsString().equals("OK")) return;
 
                 JsonArray routes = jsonObject.getAsJsonArray("routes");
                 if (routes.size() > 0) {
@@ -50,21 +73,22 @@ public class DirectionsHelper {
                     List<LatLng> points = decodePoly(encodedPoints);
 
                     new Handler(Looper.getMainLooper()).post(() -> {
-                        map.addPolyline(new PolylineOptions()
+                        if (lastPolyline != null) lastPolyline.remove();
+                        lastPolyline = map.addPolyline(new PolylineOptions()
                                 .addAll(points)
                                 .width(10)
-                                .color(0xFF2196F3));
+                                .color(color));
                     });
                 }
             }
         });
     }
 
+    // Decodifica la polilínea de Google Directions
     private static List<LatLng> decodePoly(String encoded) {
         List<LatLng> poly = new ArrayList<>();
         int index = 0, len = encoded.length();
         int lat = 0, lng = 0;
-
         while (index < len) {
             int b, shift = 0, result = 0;
             do {
@@ -74,7 +98,6 @@ public class DirectionsHelper {
             } while (b >= 0x20);
             int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
             lat += dlat;
-
             shift = 0;
             result = 0;
             do {
@@ -84,11 +107,9 @@ public class DirectionsHelper {
             } while (b >= 0x20);
             int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
             lng += dlng;
-
             LatLng p = new LatLng(((double) lat / 1E5), ((double) lng / 1E5));
             poly.add(p);
         }
-
         return poly;
     }
 }
