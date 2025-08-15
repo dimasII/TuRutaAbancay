@@ -58,15 +58,31 @@ public class RouteBottomSheetFragment extends BottomSheetDialogFragment {
                                 break;
 
                             case 2:
-                                origen = new LatLng(-13.6350, -72.8845);
-                                destino = new LatLng(-13.6395, -72.8820);
-                                paradas.add(new LatLng(-13.6360, -72.8835));
-                                paradas.add(new LatLng(-13.6370, -72.8830));
+                                origen = new LatLng(-13.650935, -72.902341);
+                                destino = new LatLng(-13.598274, -72.860846);
+
+                                paradas.add(new LatLng(-13.642507, -72.896271));
+                                paradas.add(new LatLng(-13.643096, -72.895230));
+                                paradas.add(new LatLng(-13.638016, -72.892067));
+                                paradas.add(new LatLng(-13.638016, -72.889556));
+                                paradas.add(new LatLng(-13.636520, -72.890580));
+                                paradas.add(new LatLng(-13.636372, -72.888456));
+
+                                paradas.add(new LatLng(-13.634730, -72.889505));
+                                paradas.add(new LatLng(-13.635554, -72.876808));
+                                paradas.add(new LatLng(-13.634424, -72.876588));
+                                paradas.add(new LatLng(-13.632355, -72.881255));
+                                paradas.add(new LatLng(-13.629733, -72.873274));
+                                paradas.add(new LatLng(-13.624819, -72.879065));
+                                paradas.add(new LatLng(-13.624119, -72.873055));
+                                paradas.add(new LatLng(-13.612712, -72.868099));
+                                paradas.add(new LatLng(-13.611660, -72.869296));
                                 break;
 
                             case 3:
                                 origen = new LatLng(-13.644867, -72.892688);
                                 destino = new LatLng(-13.616846, -72.866075);
+
                                 paradas.add(new LatLng(-13.644312, -72.892333));
                                 paradas.add(new LatLng(-13.644168, -72.892806));
                                 paradas.add(new LatLng(-13.640266, -72.888918));
@@ -92,6 +108,7 @@ public class RouteBottomSheetFragment extends BottomSheetDialogFragment {
                                 paradas.add(new LatLng(-13.626770, -72.882006));
                                 paradas.add(new LatLng(-13.626981, -72.885335));
                                 paradas.add(new LatLng(-13.626586, -72.878198));
+                                paradas.add(new LatLng(-13.599781, -72.861303));
                                 break;
 
                             case 4:
