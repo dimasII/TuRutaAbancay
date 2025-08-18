@@ -48,13 +48,17 @@ public class RouteBottomSheetFragment extends BottomSheetDialogFragment {
 
                         LatLng origen = null, destino = null;
                         List<LatLng> paradas = new ArrayList<>();
-
                         switch (finalI) {
                             case 1:
-                                origen = new LatLng(-13.6345, -72.8814);
-                                destino = new LatLng(-13.6370, -72.8800);
-                                paradas.add(new LatLng(-13.6350, -72.8810));
-                                paradas.add(new LatLng(-13.6360, -72.8805));
+                                origen = new LatLng(-13.656361, -72.912620);
+                                destino = new LatLng(-13.634406, -72.865322);
+
+                                paradas.add(new LatLng(-13.650934, -72.916268));
+                                paradas.add(new LatLng(-13.634532, -72.885980));
+                                paradas.add(new LatLng(-13.635733, -72.873263));
+                                paradas.add(new LatLng(-13.636086, -72.874262));
+                                paradas.add(new LatLng(-13.637293, -72.874184));
+
                                 break;
 
                             case 2:
@@ -84,14 +88,10 @@ public class RouteBottomSheetFragment extends BottomSheetDialogFragment {
                                 destino = new LatLng(-13.616846, -72.866075);
 
                                 paradas.add(new LatLng(-13.644312, -72.892333));
-                                paradas.add(new LatLng(-13.644168, -72.892806));
                                 paradas.add(new LatLng(-13.640266, -72.888918));
-                                paradas.add(new LatLng(-13.640450, -72.888363));
                                 paradas.add(new LatLng(-13.640766, -72.888449));
                                 paradas.add(new LatLng(-13.643088, -72.887264));
                                 paradas.add(new LatLng(-13.641721, -72.884767));
-                                paradas.add(new LatLng(-13.641056, -72.885156));
-                                paradas.add(new LatLng(-13.640455, -72.884467));
                                 paradas.add(new LatLng(-13.640821, -72.882323));
                                 paradas.add(new LatLng(-13.638099, -72.883203));
                                 paradas.add(new LatLng(-13.636574, -72.881481));
@@ -100,21 +100,22 @@ public class RouteBottomSheetFragment extends BottomSheetDialogFragment {
                                 paradas.add(new LatLng(-13.634392, -72.883720));
                                 paradas.add(new LatLng(-13.634566, -72.886789));
                                 paradas.add(new LatLng(-13.632676, -72.887816));
-                                paradas.add(new LatLng(-13.632662, -72.884685));
                                 paradas.add(new LatLng(-13.630602, -72.884708));
                                 paradas.add(new LatLng(-13.630611, -72.886670));
                                 paradas.add(new LatLng(-13.628677, -72.888402));
                                 paradas.add(new LatLng(-13.628274, -72.881541));
-                                paradas.add(new LatLng(-13.626770, -72.882006));
                                 paradas.add(new LatLng(-13.626981, -72.885335));
                                 paradas.add(new LatLng(-13.626586, -72.878198));
-                                paradas.add(new LatLng(-13.599781, -72.861303));
                                 break;
 
                             case 4:
-                                origen = new LatLng(-13.6330, -72.8830);
-                                destino = new LatLng(-13.6375, -72.8810);
-                                paradas.add(new LatLng(-13.6340, -72.8820));
+                                origen = new LatLng(-13.652149, -72.899287);
+                                destino = new LatLng(-13.620412, -72.861509);
+
+                                paradas.add(new LatLng(-13.643394, -72.896639)); // Cruce importante
+                                paradas.add(new LatLng(-13.638237, -72.884724)); // Tramo medio
+                                paradas.add(new LatLng(-13.639285, -72.878706)); // Desvío clave
+                                paradas.add(new LatLng(-13.635566, -72.876835)); // Curva importante
                                 break;
 
                             case 5:

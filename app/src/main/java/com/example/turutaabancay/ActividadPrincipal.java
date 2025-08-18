@@ -74,33 +74,6 @@ public class ActividadPrincipal extends AppCompatActivity implements OnMapReadyC
         bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
     }
 
-    private void dibujarRuta(int rutaId) {
-        if (gMap == null) return;
-
-        gMap.clear();
-        List<LatLng> puntos = new ArrayList<>();
-
-        switch (rutaId) {
-            case 1:
-                puntos.add(new LatLng(-13.656249, -72.910968));
-                puntos.add(new LatLng(-13.6351, -72.8815));
-                puntos.add(new LatLng(-13.6330, -72.8780));
-                break;
-            case 2:
-                puntos.add(new LatLng(-13.6370, -72.8850));
-                puntos.add(new LatLng(-13.6345, -72.8825));
-                puntos.add(new LatLng(-13.6310, -72.8800));
-                break;
-        }
-
-        if (!puntos.isEmpty()) {
-            gMap.addPolyline(new PolylineOptions()
-                    .addAll(puntos)
-                    .width(8)
-                    .color(0xFF2196F3));
-            gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(puntos.get(0), 15));
-        }
-    }
 
     @Override protected void onStart() { super.onStart(); mapView.onStart(); }
     @Override protected void onResume() { super.onResume(); mapView.onResume(); }
