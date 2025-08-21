@@ -8,6 +8,7 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/tu_ruta_abancay" /> <!-- Cambia tu_logotipo por el nombre de tu imagen -->
+        android:src="@drawable/tu_ruta_abancay" />
+
 
 </RelativeLayout>
