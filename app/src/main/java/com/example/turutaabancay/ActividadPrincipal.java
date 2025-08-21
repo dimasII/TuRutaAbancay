@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,8 +19,8 @@ public class ActividadPrincipal extends AppCompatActivity implements OnMapReadyC
     private MapView mapView;
     private GoogleMap gMap;
     private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
-
-    private Spinner spinnerRutas; // 👈 Spinner que aparece a la derecha
+    private Spinner spinnerRutas;
+    private LinearLayout layoutLeyenda;
     private LatLng oSub, dSub, oBaj, dBaj;
     private List<LatLng> wSub, wBaj;
     private String apiKeyLocal;
@@ -58,6 +59,10 @@ public class ActividadPrincipal extends AppCompatActivity implements OnMapReadyC
         // Spinner de sentido (oculto inicialmente)
         spinnerRutas = findViewById(R.id.spinnerRutas);
         spinnerRutas.setVisibility(View.GONE);
+
+        // Leyenda (oculta inicialmente)
+        layoutLeyenda = findViewById(R.id.layoutLeyenda);
+        layoutLeyenda.setVisibility(View.GONE);
     }
 
     @Override
@@ -73,7 +78,6 @@ public class ActividadPrincipal extends AppCompatActivity implements OnMapReadyC
         bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
     }
 
-    // 👇 Este método será llamado por el BottomSheet cuando el usuario seleccione la ruta
     public void mostrarSpinnerSentido(LatLng origenSubida, LatLng destinoSubida, List<LatLng> paradasSubida,
                                       LatLng origenBajada, LatLng destinoBajada, List<LatLng> paradasBajada,
                                       String apiKey, RouteBottomSheetFragment sheet) {
@@ -109,14 +113,17 @@ public class ActividadPrincipal extends AppCompatActivity implements OnMapReadyC
 
                 String sel = opciones[position];
                 if ("Subida".equals(sel)) {
+                    layoutLeyenda.setVisibility(View.GONE); // 👈 Ocultamos leyenda
                     DirectionsHelper.drawRouteWithWaypoints(
                             gMap, oSub, dSub, wSub, apiKeyLocal, 0xFF2196F3 // azul
                     );
                 } else if ("Bajada".equals(sel)) {
+                    layoutLeyenda.setVisibility(View.GONE); // 👈 Ocultamos leyenda
                     DirectionsHelper.drawRouteWithWaypoints(
                             gMap, oBaj, dBaj, wBaj, apiKeyLocal, 0xFFE91E63 // rosado
                     );
                 } else { // Ambos
+                    layoutLeyenda.setVisibility(View.VISIBLE); // 👈 Mostramos leyenda
                     DirectionsHelper.drawRouteWithWaypoints(
                             gMap, oSub, dSub, wSub, apiKeyLocal, 0xFF2196F3
                     );
