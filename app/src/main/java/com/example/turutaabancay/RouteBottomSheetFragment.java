@@ -68,13 +68,42 @@ public class RouteBottomSheetFragment extends BottomSheetDialogFragment {
                         case 3:
                             origenSubida = new LatLng(-13.644867, -72.892688);
                             destinoSubida = new LatLng(-13.616846, -72.866075);
-                            paradasSubida.add(new LatLng(-13.644312, -72.892333));
-                            paradasSubida.add(new LatLng(-13.640266, -72.888918));
-                            paradasSubida.add(new LatLng(-13.640766, -72.888449));
+
+                            paradasSubida.add(new LatLng(-13.640370, -72.888718));
+                            paradasSubida.add(new LatLng(-13.640775, -72.888433));
+                            paradasSubida.add(new LatLng(-13.643090, -72.887263));
+                            paradasSubida.add(new LatLng(-13.641042, -72.885145));
+                            paradasSubida.add(new LatLng(-13.640485, -72.884437));
+                            paradasSubida.add(new LatLng(-13.640009, -72.882493));
+                            paradasSubida.add(new LatLng(-13.638066, -72.883191));
+                            paradasSubida.add(new LatLng(-13.636564, -72.881498));
+                            paradasSubida.add(new LatLng(-13.636336, -72.876929));
+                            paradasSubida.add(new LatLng(-13.635394, -72.884469));
+                            paradasSubida.add(new LatLng(-13.634561, -72.886773));
+                            paradasSubida.add(new LatLng(-13.632680, -72.887837));
+                            paradasSubida.add(new LatLng(-13.632606, -72.884675));
+                            paradasSubida.add(new LatLng(-13.630624, -72.884684));
+                            paradasSubida.add(new LatLng(-13.628702, -72.888292));
+                            paradasSubida.add(new LatLng(-13.628279, -72.881544));
+                            paradasSubida.add(new LatLng(-13.626753, -72.882023));
+                            paradasSubida.add(new LatLng(-13.626977, -72.885311));
+                            paradasSubida.add(new LatLng(-13.626560, -72.878193));
 
                             origenBajada = destinoSubida;
                             destinoBajada = origenSubida;
-                            paradasBajada.addAll(paradasSubida);
+                            paradasBajada.add(new LatLng(-13.625613, -72.877954));
+                            paradasBajada.add(new LatLng(-13.627009, -72.885930));
+                            paradasBajada.add(new LatLng(-13.632727, -72.890196));
+                            paradasBajada.add(new LatLng(-13.634717, -72.888975));
+                            paradasBajada.add(new LatLng(-13.635574, -72.876800));
+                            paradasBajada.add(new LatLng(-13.636396, -72.879772));
+                            paradasBajada.add(new LatLng(-13.638117, -72.883201));
+                            paradasBajada.add(new LatLng(-13.640837, -72.882336));
+                            paradasBajada.add(new LatLng(-13.640869, -72.884027));
+                            paradasBajada.add(new LatLng(-13.641754, -72.884747));
+                            paradasBajada.add(new LatLng(-13.640314, -72.888912));
+
+
                             break;
 
                         // TODO: Agrega casos 4..10 según tus datos
