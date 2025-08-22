@@ -118,28 +118,6 @@
                 android:shape="rectangle"
                 android:drawablePadding="8dp" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-        <Button
-                android:id="@+id/button9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9"
-                android:drawableLeft="@drawable/bus"
-            android:shape="rectangle"
-                android:drawablePadding="8dp" />
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10"
-                android:layout_marginStart="8dp"
-                android:drawableLeft="@drawable/bus"
-                android:shape="rectangle"
-                android:drawablePadding="8dp" />
-        </LinearLayout>
     </LinearLayout>
 
     <Button
